@@ -9,14 +9,38 @@
 
 #take goal+ deposit( seperate from and before selction )(don't forgor rounding)
 def main():
-    goal=int(input("How much money do you want to save?"))
-    deposit= int(input("How much can you deposit weekly?"))
-    savetime=(goal/deposit+"weeks")
+    while True:
+        print("What do you wish to use")
+        print("1-Weekly save time calculator")
+        print("2-Compound intrest calculator")
+        Print("3-Budget allocation")
+        Print("4-Sale price calculator")
+        Print("5-Tip calculator")
+        calc_choice=int(input("which one do you want to use(1-5)"))
+        if calc_choice== 1:
+            save_time_calc()
+            
+            
+        elif calc_choice== 2:
+            pass
+        
+        elif calc_choice== 3:
+            pass
+        
+        elif calc_choice== 4:
+            pass
+        
+        elif calc_choice== 5:
+            pass
+        
+        
 
 #ask user what they want to use(prob use words not numbers)(maybe have function for switching to ignore caps)(ensure it asks multiple times after last function completes) (i'm cooked)(lowk just make this the ian function)(bruh fix that ugle code) 
-def selection
-    use=input("What do you want to use     weekly goal saving compound intrest calculator Budget Allocator Sale Price Calculator Tip calculator  ")
-
+def save_time_calc():
+      goal= float(input("How much do you want to save?"))
+      deposit= float(input("how much can you deposit weekly"))
+      time = goal/deposit 
+      print("It will take {round(time, 2) years to reach your goal 
 
 
 #compund equation
@@ -26,6 +50,7 @@ def selection
 
 # budget allocation(make function, ask for percentage wanted everytime)(find way to get tme into ask)(side function)
 def saving():
+    income=
     savings=int(input("How much do you save annually "))
     entertainment=int(input("How much do you spend on entertainment"))
     food=int(input("How much do you spend on food "))
