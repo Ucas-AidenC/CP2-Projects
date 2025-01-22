@@ -12,6 +12,10 @@
 #List for books(editable)
 library_books=[]
 
+#book adding function
+def add_book():
+  title=input("What is the title of the book you want to add? ")
+  
 
 
 
@@ -21,14 +25,35 @@ library_books=[]
 
 
 
-
-
+#have user select what they want to use
 def main():
   while true:
     print("Personal Library Program")
-    print
-
-
+    print("1- Would you like to add an item")
+    print("2- Would you like to remove an item")
+    print("3- Would you like to search for an item")
+    print("4- Would you like to add an item")
+    print("5- Display current library")
+    print("6- Exit")
+    choice=int(input("What would you like to use"))
+        if choice== 1:
+            add_book()
+            
+            
+        elif choice== 2:
+            compound_eq()
+        
+        elif choice== 3:
+            budget()
+        
+        elif choice== 4:
+            sale_price()
+        
+        elif choice== 5:
+            tip_calc()
+          
+        elif cchoice== 6:
+          break 
 
 
 
