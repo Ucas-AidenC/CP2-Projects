@@ -42,6 +42,7 @@ def password_gen():
       password+=numbers
   if special == "yes":
       password+=special_characters
+#generate the passwords and print 
   print("\nGenerated Passwords:")
   for i in range(4):
     password_p = "".join(random.choices(password, k=length))
@@ -67,7 +68,8 @@ def main():
       print("What do you want to use") 
       print("1. Password Generator")
       print("2. Password History") 
-      print("3. quit")
+      print("3. Set Parameters")
+      print("4. quit")
       choice=int(input("Please select what you want to use: "))
 
       if choice==1: 
@@ -77,7 +79,7 @@ def main():
         password_history()
         
       if choice==3: 
-        break
+        parameters_g()
   
   
 if __name__ == "__main__":
