@@ -1,0 +1,42 @@
+This is my text file full of thing!
+
+I can write whatever i want 
+
+
+
+with open('Notes_2nd/things.txt','r') as file:
+  content = f = file.read()
+  print(content)
+
+  with open('Notes_2nd/things.txt','r') as file:
+  content = f = file.read()
+  print(content.upper)
+
+  with open('Notes_2nd/things.txt','r') as file:
+    content= file.read()
+    index = content.find("write")
+    end = index+5
+    print(content[index,end])
+
+import csv
+
+  with open('Notes_2nd/things.txt','r') as file:
+    csv_reader = csv.reader(file)
+    next(csv_reader)
+    for row in csv_reader:
+      print(f'username{row[0]}, favorite color {row[1]}') 
+
+#skipping and 
+file = open("Notes_2nd/things.txt","r")
+    csv_reader = csv.reader(file)
+
+
+
+
+
+  with open('Notes_2nd/things.txt','r') as file:
+      csv_reader = csv.reader(file)
+      next(csv_reader)
+      for row in csv_reader:
+        users=userer.update({row[0]:row[1]})
+        
