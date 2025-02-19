@@ -1,0 +1,4 @@
+import glob
+
+csv_files = glob.glob("/mnt/data/*.csv")
+print("CSV Files:", csv_files)
