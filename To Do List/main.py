@@ -11,7 +11,10 @@ file_path = "To Do List/To Do List.txt"
 def load_tasks(file_path):
     with open(file_path, "r") as file:
         for line in file:
-            task, status = line.strip().split("|")
+            line = line.strip()
+            if not line:
+                continue
+            task, status = line.split("|")
             tasks[task] = status == "True"
     return tasks
 
@@ -90,3 +93,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
