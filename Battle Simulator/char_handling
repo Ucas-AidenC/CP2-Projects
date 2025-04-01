@@ -1,1 +1,117 @@
+import csv
+import pandas as pd
+from faker import Faker
+import matplotlib.pyplot as plt
+import random
+import numpy as np
+
+filename = "Battle Simulator/char.csv"
+fake = Faker()
+
+stat = {
+    "health": (50, 150),
+    "strength": (1, 20),
+    "defense": (1, 20),
+    "speed": (1, 20)
+}
+
+# Creating character based on input
+def create_char():
+    name = input("Enter character name: ")
+    health = stat_input("Enter health (50-150): ", "health")
+    strength = stat_input("Enter strength (1-20): ", "strength")
+    defense = stat_input("Enter defense (1-20): ", "defense")
+    speed = stat_input("Enter speed (1-20): ", "speed")
+    
+    backstory_templates = [
+        f"{name} was a known for slaying several gods granting them a {strength}-level of strength",
+        f"when {name} was a kid they were the fastest kid granting them a speed stat of {speed} ",
+        f"When {name} was six they ran into a wall without crying granting them a defense level of {defense}"
+    ]
+    backstory = random.choice(backstory_templates)
+    
+    char = {
+        "name": name,
+        "health": health,
+        "strength": strength,
+        "defense": defense,
+        "speed": speed,
+        "level": 1,
+        "backstory": backstory
+    }
+    save_char(char)
+
+# Check if input is in range
+def stat_input(prompt, stat_key):
+    while True:
+        try:
+            value = int(input(prompt))
+            if stat[stat_key][0] <= value <= stat[stat_key][1]:
+                return value
+            else:
+                print(f"{stat_key.capitalize()} must be between {stat[stat_key][0]} and {stat[stat_key][1]}")
+        except ValueError:
+            print("Invalid input Please enter a positive number")
+
+# Save character data
+def save_char(char):
+    try:
+        with open(filename, mode="r") as file:
+            file_exists = file.readline().strip() == "name,health,strength,defense,speed,level,backstory"
+    except FileNotFoundError:
+        file_exists = False
+    
+    with open(filename, "a", newline='') as file:
+        fieldnames = ["name", "health", "strength", "defense", "speed", "level", "backstory"]
+        writer = csv.DictWriter(file, fieldnames=fieldnames)
+        if not file_exists:
+            writer.writeheader()
+        writer.writerow(char)
+
+# Load character data
+def load_char():
+    try:
+        return pd.read_csv(filename, dtype={"health": int, "strength": int, "defense": int, "speed": int}).to_dict(orient="records")
+    except FileNotFoundError:
+        return []
+
+# Display all characters
+def display_char():
+    characters = load_char()
+    if not characters:
+        print("No characters found")
+        return
+    for char in characters:
+        print(char)
+
+# Visualize character stats
+def visualize_char(name):
+    characters = load_char()
+    char = next((c for c in characters if c['name'] == name), None)
+    
+    if not char:
+        print("Character not found")
+        return
+    
+    stats = ['health', 'strength', 'defense', 'speed']
+    values = [char[stat] for stat in stats]
+
+    #coversion to int
+    values = list(map(int, values))
+
+    angles = np.linspace(0, 2 * np.pi, len(stats), endpoint=False).tolist()
+    
+    values += values[:1]  
+    angles += angles[:1]  
+
+    fig, ax = plt.subplots(figsize=(6, 6), subplot_kw=dict(polar=True))
+    ax.fill(angles, values, alpha=0.3, label=name)
+    ax.plot(angles, values, marker='o')
+
+    ax.set_xticks(angles[:-1])
+    ax.set_xticklabels(stats, fontsize=12, color='black') 
+
+    plt.title(f"Stats for {name}")
+    plt.legend()
+    plt.show
 
