@@ -20,7 +20,7 @@ def main():
         elif choice == "3":
             characters = load_char()
             if len(characters) < 2:
-                print("Not enough characters to battle.")
+                print("Not enough characters to battle")
                 continue
             
             name1 = input("What is the first character's name: ")
@@ -41,7 +41,7 @@ def main():
         elif choice == "5":
             break
         else:
-            print("Invalid input Please try a number from 1-5.")
+            print("Error try a number from 1-5")
 
 if __name__ == "__main__":
     main()
