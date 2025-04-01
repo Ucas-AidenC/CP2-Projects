@@ -1,1 +1,30 @@
 
+from char_handling import *
+import random
+
+# Helper function to calculate damage
+def calculate_damage(attack, defend):
+    base_damage = max(0, attack["strength"] - defend["defense"])
+    return base_damage + random.randint(-10, 10)
+
+# Function for running battles
+def battle(char1, char2):
+    print(f"{char1['name']} vs {char2['name']}! Battle begins!")
+    
+    while char1['health'] > 0 and char2['health'] > 0:
+        if char1['speed'] >= char2['speed']:
+            attacker, defender = char1, char2
+        else:
+            attacker, defender = char2, char1
+        
+        damage = calculate_damage(attacker, defender)
+        defender['health'] = max(0, defender['health'] - damage)
+        print(f"\n{attacker['name']} deals {damage} damage to {defender['name']}! {defender['name']} has {defender['health']} HP left")
+        
+        if defender['health'] <= 0:
+            print(f"{attacker['name']} won!")
+            attacker['level'] += 1
+            save_char(attacker)
+            return
+        
+        char1, char2 = char2, char1
