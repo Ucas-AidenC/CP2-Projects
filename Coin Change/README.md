@@ -1,61 +1,36 @@
-# Name of the project 
+# Coin Change Problem
 
 ## Project Description 
 ---
-This project is used to solve the coin change problem in a simple and effective way 
+This project is used to solve the coin change problem in a simple and effective way.
 
 ## Installation 
 ***
-1. instruction one 
-2. instruction two 
-3. instruction three  
+1. Clone repository
+2. Run Code 
+
 
 ## Execution and Usage 
 ---
-Short paragraph here maybe a bulletted list 
 
-+ list item one
-+ list item two
-+ list item three
-
-![image](Reakative link to your image of the project working NOTE: image must be saved in the repository)  
++ Run code from main
++ Select country from menu
++ Enter amount of money to find 
 
 ## Used Technologies 
 ---
-+ Name of the tech - what it does in the project 
-`pip install instructions`
-+ Name of the tech - what it does in the project 
-`pip install instructions`
-+ Name of the tech - what it does in the project 
-`pip install instructions`  
+Python Coding Lanaguage 
 
 ## Current Features 
 --- 
 
-+ List of cool things your project does 
-+ List of cool things your project does 
-+ List of cool things your project does  
-
-## Contributing 
----
-Do not add to this section 
-
++ Multi country support 
 
 ## Contributors 
 ---
-+ List of people who helped and what they did
-+ List of people who helped and what they did
-+ List of people who helped and what they did  
+
++ Aiden Challenger coded UI and logic behind the problem 
 
 ## Author's Info 
 ---
-Short paragraph about you (each person in a group project)
-How to contact you if you want that available   
-
-## Changelog 
----
-Do not add to this section  
-
-## License 
---- 
-Do not add to this section 
+I am Aiden challenger. I am a student who hopes to go into engineering.
