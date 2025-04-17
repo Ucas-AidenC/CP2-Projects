@@ -10,7 +10,7 @@ from word_counter import *
 from fiancal_calculator import *
 
 
-
+#this was just me keeping the template in the same file 
 #What the project does
 #
 #How you found the programming process
@@ -38,7 +38,7 @@ def main():
         if choice == 1: 
             print("This project takes parameters for diffrent movies then gives the users recomendations for movies they should watch")
             print("I found the coding process for this to be a little weird because I was initally overwhelmed by the amount of data on the list I had to sort through")
-            print("Through this I learned file handling for txts and how to use multiple python files\n")
+            print("Through this I learned basic file handling that i still use \n")
             main_1()
         
 
